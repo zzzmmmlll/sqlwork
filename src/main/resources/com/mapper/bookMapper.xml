@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.BookMapper">
+    <select id="queryAll" resultType="com.Data.Book">
+        select * from work.book;
+    </select>
+    <select id="query" resultType="com.Data.Book">
+        select * from work.book
+        where book_ID=_parameter
+    </select>
+    <insert id="addbook">
+        insert into  work.book values
+        (${_parameter.Book_ID},"${_parameter.Book_name}",${_parameter.cost},"${_parameter.roduction}")
+    </insert>
+</mapper>

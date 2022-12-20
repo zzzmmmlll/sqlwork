@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.shoppingcartlogMapper">
+    <select id="getsize" resultType="com.Data.Shoppingcartlog">
+        select size from work.shoppingcartlog
+        where shoppingcart_ID=${x} and
+            book_ID=${y}
+    </select>
+    <insert id="add">
+        insert into work.shoppingcartlog values
+        (${_parameter.shoppingcart_ID},${_parameter.book_ID},${_parameter.cost},${_parameter.size})
+    </insert>
+    <update id="update">
+        update work.shoppingcartlog
+        set size=_parameter.size,cost=_parameter.cost
+        where shoppingcart_ID=${_parameter.shoppingcart_ID} and
+            book_ID=${_ parameter.book_ID}
+    </update>
+    <delete id="delete">
+        delete from work.shoppingcartlog
+        where shoppingcart_ID=${_parameter.shoppingcart_ID} and
+            book_ID=${_parameter.book_ID}
+    </delete>
+    <select id="query" resultType="com.Data.Shoppingcartlog">
+        select * from work.shoppingcartlog
+        where shoppingcart_ID=${_parameter}
+    </select>
+    <delete id="clear">
+        delete from work.shoppingcartlog
+        where shoppingcart_ID=${_parameter}
+    </delete>
+</mapper>

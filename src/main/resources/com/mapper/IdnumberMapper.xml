@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.IdnumberMapper">
+    <select id="queryAll" resultType="com.Data.IDnumber">
+        select * from work.idnumber
+    </select>
+    <select id="queryone" resultType="int">
+        select ${typeid}
+        from
+        work.idnumber
+    </select>
+    <update id="update">
+        update work.idnumber
+        set ${id}=${x}
+    </update>
+</mapper>

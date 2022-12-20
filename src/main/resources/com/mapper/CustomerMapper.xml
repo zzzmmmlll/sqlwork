@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.CustomerMapper">
+    <select id="queryCustomer1" resultType="com.Data.customer">
+         select * from work.Customer
+        where password=${password} and
+            id=${id}
+    </select>
+    <select id="queryCustomer" resultType="com.Data.customer">
+        select * from work.Customer
+        where (passwordtext = "${_parameter.Passwordtext}" or
+               telephone = " ${_parameter.Telephone}") and
+                  customer_id=${_parameter.Id}
+    </select>
+    <select id="queryCustomer2" resultType="com.Data.customer">
+        select * from work.Customer
+        where passwordtext = "${password}" and
+            telephone="${telephone}"
+    </select>
+    <insert id="add">
+        insert into work.Customer values
+        (${_parameter.Id},"${_parameter.Name}","${_parameter.Telephone}","${_parameter.Passwordtext}")
+    </insert>
+    <select id="queryAll" resultType="com.Data.customer">
+        select * from work.Customer
+    </select>
+</mapper>
