@@ -1,0 +1,28 @@
+#dataase
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled=true:
+  main:
+    lazy-initialization: false
+  datasource:
+    url: jdbc:mysql:///test1
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  logging:
+    level:
+      springfox: error
+      root: info
+      com.management.deviceManage.mapper.*: debug
+
+#mybatis:
+#  mapper-locations: classpath:mapper/*Mapper.xml
+#  type-aliases-package: com.Data
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: PT24H
